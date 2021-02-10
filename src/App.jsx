@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const result = await axios('http://jsonplaceholder.typicode.com/users');
+      const result = await axios('//jsonplaceholder.typicode.com/users');
       setState({ ...state, robots: result.data });
     } catch (error) {
       console.log(error);
