@@ -4,6 +4,7 @@ import React from 'react';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
+import Error from './components/Error';
 import 'tachyons';
 import './styles/App.css';
 
@@ -47,7 +48,9 @@ const App = () => {
       <h1 className='f1'>RoboFriends</h1>
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
-        <CardList robots={filteredRobots} />
+        <Error>
+          <CardList robots={filteredRobots} />
+        </Error>
       </Scroll>
     </div>
   );
