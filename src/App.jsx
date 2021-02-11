@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import React from 'react';
 import CardList from './components/CardList';
@@ -9,15 +9,13 @@ import 'tachyons';
 import './styles/App.css';
 
 const App = () => {
-  const [state, setState] = useState({
-    robots: [],
-    searchField: '',
-  });
+  const [robots, setRobots] = useState([]);
+  const [searchField, setSearchField] = useState('');
 
   const fetchUsers = useCallback(async () => {
     try {
       const result = await axios('//jsonplaceholder.typicode.com/users');
-      setState({ ...state, robots: result.data });
+      setRobots(result.data);
     } catch (error) {
       console.log(error);
     }
@@ -25,23 +23,17 @@ const App = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, [fetchUsers]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const filteredRobots = useMemo(
-    () =>
-      state.robots.filter((robot) => {
-        return robot.name
-          .toLowerCase()
-          .includes(state.searchField.toLowerCase());
-      }),
-    [state]
-  );
+  const filteredRobots = robots.filter((robot) => {
+    return robot.name.toLowerCase().includes(searchField.toLowerCase());
+  });
 
   const onSearchChange = (e) => {
-    setState({ ...state, searchField: e.target.value });
+    setSearchField(e.target.value);
   };
 
-  return !state.robots.length ? (
+  return !robots.length ? (
     <h1 className='f1 tc'>Loading...</h1>
   ) : (
     <div className='App tc'>
