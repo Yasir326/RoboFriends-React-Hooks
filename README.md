@@ -1,6 +1,8 @@
 # Robofriends-react-hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a example application in creating a basic react app, which invloves rendering cards, creating a searchbox and fetching data.
+This project is updated according to new changes and dependencies. This project started using classes and the changed to hook.
+The next change will be converting this project into typescript.
 
 ## Available Scripts
 
