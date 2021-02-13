@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import { setSearchField } from './state/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import React from 'react';
 import CardList from './components/CardList';
@@ -8,16 +10,18 @@ import Error from './components/Error';
 import 'tachyons';
 import './styles/App.css';
 
+
 const App = () => {
+  const searchField  = useSelector((state) => state.searchField)
+  const dispatch = useDispatch();
   const [robots, setRobots] = useState([]);
-  const [searchField, setSearchField] = useState('');
 
   const fetchUsers = useCallback(async () => {
     try {
-      const result = await axios('//jsonplaceholder.typicode.com/users');
+      const result = await axios.get('//jsonplaceholder.typicode.com/users');
       setRobots(result.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -30,7 +34,7 @@ const App = () => {
   });
 
   const onSearchChange = (e) => {
-    setSearchField(e.target.value);
+    dispatch(setSearchField(e.target.value));
   };
 
   return !robots.length ? (
@@ -47,5 +51,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
