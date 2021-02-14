@@ -29,7 +29,6 @@ const App = () => {
   });
 
   const onSearchChange = (e) => {
-    console.log(stateProps.isPending)
     dispatch(setSearchField(e.target.value));
   };
 
