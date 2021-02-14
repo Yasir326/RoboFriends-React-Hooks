@@ -13,7 +13,7 @@ const App = () => {
   const stateProps = useSelector((state) => ({
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
-    isPending: state.requestRobots.pending,
+    isPending: state.requestRobots.isPending,
     error: state.requestRobots.pending,
   }));
   const dispatch = useDispatch();
@@ -29,10 +29,11 @@ const App = () => {
   });
 
   const onSearchChange = (e) => {
+    console.log(stateProps.isPending)
     dispatch(setSearchField(e.target.value));
   };
 
-  return !stateProps.robots.length ? (
+  return stateProps.isPending ? (
     <h1 className='f1 tc'>Loading...</h1>
   ) : (
     <div className='App tc'>
