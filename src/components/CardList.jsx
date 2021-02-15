@@ -4,11 +4,16 @@ import Card from './Card';
 
 const CardList = () => {
   const robots = useSelector((state) =>
-    state.requestRobots.robots.filter((robot) => {
-      return robot.name
-        .toLowerCase()
-        .includes(state.searchRobots.searchField.toLowerCase());
-    })
+    state.requestRobots.robots.filter(
+      (robot) => {
+        return robot.name
+          .toLowerCase()
+          .includes(state.searchRobots.searchField.toLowerCase());
+      },
+      {
+        error: state.requestRobots.pending,
+      }
+    )
   );
 
   return (

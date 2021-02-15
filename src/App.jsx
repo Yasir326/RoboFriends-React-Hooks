@@ -13,7 +13,6 @@ const App = () => {
   const stateProps = useSelector((state) => ({
     searchField: state.searchRobots.searchField,
     isPending: state.requestRobots.isPending,
-    error: state.requestRobots.pending,
   }));
   const dispatch = useDispatch();
 
