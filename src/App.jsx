@@ -12,7 +12,6 @@ import './styles/App.css';
 const App = () => {
   const stateProps = useSelector((state) => ({
     searchField: state.searchRobots.searchField,
-    robots: state.requestRobots.robots,
     isPending: state.requestRobots.isPending,
     error: state.requestRobots.pending,
   }));
@@ -22,11 +21,6 @@ const App = () => {
     dispatch(requestRobots);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const filteredRobots = stateProps.robots.filter((robot) => {
-    return robot.name
-      .toLowerCase()
-      .includes(stateProps.searchField.toLowerCase());
-  });
 
   const onSearchChange = (e) => {
     dispatch(setSearchField(e.target.value));
@@ -40,7 +34,7 @@ const App = () => {
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <Error>
-          <CardList robots={filteredRobots} />
+          <CardList />
         </Error>
       </Scroll>
     </div>

@@ -1,7 +1,16 @@
+import { useSelector } from 'react-redux';
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ robots }) => {
+const CardList = () => {
+  const robots = useSelector((state) =>
+    state.requestRobots.robots.filter((robot) => {
+      return robot.name
+        .toLowerCase()
+        .includes(state.searchRobots.searchField.toLowerCase());
+    })
+  );
+
   return (
     <div>
       {robots.map((robot) => {
