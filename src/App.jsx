@@ -6,6 +6,7 @@ import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
 import Error from './components/Error';
+import Header from './components/Header';
 import 'tachyons';
 import './styles/App.css';
 
@@ -20,22 +21,23 @@ const App = () => {
     dispatch(requestRobots);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-
   const onSearchChange = (e) => {
     dispatch(setSearchField(e.target.value));
   };
 
-  return stateProps.isPending ? (
-    <h1 className='f1 tc'>Loading...</h1>
-  ) : (
+  return (
     <div className='App tc'>
-      <h1 className='f1'>RoboFriends</h1>
+      <Header />
       <SearchBox searchChange={onSearchChange} />
-      <Scroll>
-        <Error>
-          <CardList />
-        </Error>
-      </Scroll>
+      {stateProps.isPending ? (
+        <h1 className='f1 tc'>Loading...</h1>
+      ) : (
+        <Scroll>
+          <Error>
+            <CardList />
+          </Error>
+        </Scroll>
+      )}
     </div>
   );
 };

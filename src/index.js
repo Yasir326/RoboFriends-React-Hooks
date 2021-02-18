@@ -9,11 +9,11 @@ import './styles/index.css';
 import App from './App';
 
 const logger = createLogger();
-const rootReducer = combineReducers({searchRobots, requestRobots})
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunkMiddleware, logger)
-);
+const rootReducer = combineReducers({ searchRobots, requestRobots });
+const store =
+  process.env.NODE_ENV === 'production'
+    ? createStore(rootReducer, applyMiddleware(thunkMiddleware))
+    : createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
   <React.StrictMode>
