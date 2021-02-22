@@ -1,16 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`expect to render Card component 1`] = `
-<div
-  className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <img
-    alt="robot"
-    src="https://robohash.org/undefined?size=200x200"
+  <CardList
+    robots={
+      Array [
+        Object {
+          "email": "robocop@gmail.com",
+          "id": 1,
+          "key": 1,
+          "name": "robocop",
+        },
+      ]
+    }
   />
-  <div>
-    <h2 />
-    <p />
-  </div>
-</div>
+</Provider>
 `;
