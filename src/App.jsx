@@ -2,13 +2,7 @@ import { useEffect } from 'react';
 import { setSearchField, requestRobots } from './state/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import CardList from './components/Card/CardList';
-import SearchBox from './components/Search/SearchBox';
-import Scroll from './components/Scroll';
-import Error from './components/Error/Error';
-import Header from './components/Header/Header';
-import 'tachyons';
-import './styles/App.css';
+import MainPage from './components/MainPage/MainPage';
 
 const App = () => {
   const stateProps = useSelector((state) => ({
@@ -26,19 +20,10 @@ const App = () => {
   };
 
   return (
-    <div className='App tc'>
-      <Header />
-      <SearchBox searchChange={onSearchChange} />
-      {stateProps.isPending ? (
-        <h1 className='f1 tc'>Loading...</h1>
-      ) : (
-        <Scroll>
-          <Error>
-            <CardList />
-          </Error>
-        </Scroll>
-      )}
-    </div>
+    <MainPage
+      onSearchChange={onSearchChange}
+      isPending={stateProps.isPending}
+    />
   );
 };
 
