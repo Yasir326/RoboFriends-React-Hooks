@@ -13,17 +13,19 @@ exports[`expect to render Card component 1`] = `
     }
   }
 >
-  <CardList
-    robots={
-      Array [
-        Object {
-          "email": "robocop@gmail.com",
-          "id": 1,
-          "key": 1,
-          "name": "robocop",
-        },
-      ]
-    }
-  />
+  <CardList>
+    <Card
+      robots={
+        Array [
+          Object {
+            "email": "robocop@gmail.com",
+            "id": 1,
+            "key": 1,
+            "name": "robocop",
+          },
+        ]
+      }
+    />
+  </CardList>
 </Provider>
 `;

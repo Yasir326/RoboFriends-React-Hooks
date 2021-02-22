@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store';
 import CardList from './CardList.jsx';
+import Card from './Card.jsx';
 import '../../setUpTest';
 
 const mockRobots = [
@@ -13,16 +14,18 @@ const mockRobots = [
   },
 ];
 
-const mockStore = configureStore()
-const initialState = {isPending:true}
-let store
+const mockStore = configureStore();
+const initialState = { isPending: true };
+let store;
 
 it('expect to render Card component', () => {
-  store = mockStore(initialState)
+  store = mockStore(initialState);
   // const cardlist = shallow(<Provider<CardList/></Provider>, mockRobots);
   expect(
-      <Provider store={store}>
-        <CardList robots={mockRobots}/>
-      </Provider>
+    <Provider store={store}>
+      <CardList>
+        <Card robots={mockRobots}></Card>
+      </CardList>
+    </Provider>
   ).toMatchSnapshot();
 });
