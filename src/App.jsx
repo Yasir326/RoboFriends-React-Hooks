@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { setSearchField, requestRobots } from './state/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import CardList from './components/CardList';
-import SearchBox from './components/SearchBox';
+import CardList from './components/Card/CardList';
+import SearchBox from './components/Search/SearchBox';
 import Scroll from './components/Scroll';
-import Error from './components/Error';
-import Header from './components/Header';
+import Error from './components/Error/Error';
+import Header from './components/Header/Header';
 import 'tachyons';
 import './styles/App.css';
 
