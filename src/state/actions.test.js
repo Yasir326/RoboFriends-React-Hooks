@@ -28,4 +28,6 @@ describe('handles requestRobots', () => {
       type: REQUEST_ROBOTS_PENDING,
     });
   });
+
+  /**TODO Add tests for PENDING AND FAILURE */
 });
