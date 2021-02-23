@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`expect to render Card component 1`] = `
+exports[`Renders MainPage without crashing 1`] = `
 <ContextProvider
   value={
     Object {
@@ -32,24 +32,12 @@ exports[`expect to render Card component 1`] = `
     }
   }
 >
-  <CardList
-    error={false}
-    robots={
-      Array [
-        Object {
-          "email": "robocop@gmail.com",
-          "id": 1,
-          "key": 1,
-          "name": "robocop",
-        },
-        Object {
-          "email": "bartp@gmail.com",
-          "id": 2,
-          "key": 2,
-          "name": "bart",
-        },
-      ]
-    }
+  <MainPage
+    isPending={false}
+    onSearchChange={[MockFunction]}
+    requestRobots={[MockFunction]}
+    robots={Array []}
+    searchField=""
   />
 </ContextProvider>
 `;
