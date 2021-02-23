@@ -36,7 +36,6 @@ exports[`Renders MainPage without crashing 1`] = `
     isPending={false}
     onSearchChange={[MockFunction]}
     requestRobots={[MockFunction]}
-    robots={Array []}
     searchField=""
   />
 </ContextProvider>
