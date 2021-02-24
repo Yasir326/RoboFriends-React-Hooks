@@ -17,7 +17,7 @@ export const requestRobots = () => {
       const result = await axios.get('//jsonplaceholder.typicode.com/users');
       dispatch({ type: REQUEST_ROBOTS_SUCCESS, payload: result.data });
     } catch (error) {
-      dispatch({ type: REQUEST_ROBOTS_FAILED, payload: error });
+      dispatch({ type: REQUEST_ROBOTS_FAILED, payload: error.message });
     }
   };
 };
