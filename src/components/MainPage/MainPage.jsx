@@ -18,7 +18,7 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(requestRobots);
+    dispatch(requestRobots());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onSearchChange = (e) => {
