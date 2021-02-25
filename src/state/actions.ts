@@ -5,10 +5,11 @@ import {
   REQUEST_ROBOTS_SUCCESS,
   REQUEST_ROBOTS_FAILED,
 } from './constants';
+import { AppDispatch } from './dispatch'
 
-export const setSearchField = (payload) => ({ type: SEARCH_EVENT, payload });
+export const setSearchField = (payload: string) => ({ type: SEARCH_EVENT, payload });
 
-export const requestRobots = () => async (dispatch) => {
+export const requestRobots = () => async (dispatch: AppDispatch) => {
   dispatch({
     type: REQUEST_ROBOTS_PENDING,
   });

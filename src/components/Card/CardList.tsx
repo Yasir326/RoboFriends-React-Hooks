@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
 import React from 'react';
 import Card from './Card';
+import { IRobots } from '../../types';
+
+
 
 const CardList = () => {
-  const robots = useSelector((state) =>
+  const robots: Array<IRobots> = useSelector((state) =>
     state.requestRobots.robots.filter(
-      (robot) => {
+      (robot: { name: string }) => {
         return robot.name
           .toLowerCase()
           .includes(state.searchRobots.searchField.toLowerCase());

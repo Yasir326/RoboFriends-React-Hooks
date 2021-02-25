@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Scroll = (props) => {
+type Props = {
+  children?: JSX.Element | Error
+}
+
+const Scroll = (props: Props) => {
   return <div style={scrollStyle}>{props.children}</div>;
 };
 

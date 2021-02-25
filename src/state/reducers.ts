@@ -4,6 +4,7 @@ import {
   REQUEST_ROBOTS_SUCCESS,
   REQUEST_ROBOTS_FAILED,
 } from './constants';
+import { RootState } from '../types'
 
 const initialStateSearch = {
   searchField: '',
@@ -30,8 +31,8 @@ export const requestRobots = (state = initialStateRobots, action = {}) => {
       return { ...state, isPending: true };
     case REQUEST_ROBOTS_SUCCESS:
       return { ...state, robots: action.payload, isPending: false };
-      case REQUEST_ROBOTS_FAILED:
-        return { ...state, error: action.payload, isPending: false };
+    case REQUEST_ROBOTS_FAILED:
+      return { ...state, error: action.payload, isPending: false };
     default:
       return state;
   }
